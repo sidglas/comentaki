@@ -13,10 +13,14 @@ const FormDisplayName = ({displayName, user}) => {
     }
   }
   return (
-    <>
-    <input type='text' value={newDisplayName}  onChange={onChange}/>
-    <button onClick={save}> Save display name</button>
-    </>
+  
+    <section className="wrapper">
+    <div className="inner">
+      <input type='text' value={newDisplayName}  onChange={onChange}/>
+      <button onClick={save}> Save display name</button>
+    </div>
+    </section>
+    
   )
 
 }
@@ -35,9 +39,14 @@ const UserInfo = () => {
 
   return (
     <>
-    <p> Olá { dn } </p>
-    <FormDisplayName displayName={dn} user={auth.user}/>
-    <button onClick={auth.signout}>Sair</button>
+    <section className="wrapper">
+    <div className="inner">   
+      <p> Olá { dn } </p>
+      <FormDisplayName displayName={dn} user={auth.user}/>
+      <button onClick={auth.signout}>Sair</button>
+    </div>
+    </section>
+    
     </>
   )
 }

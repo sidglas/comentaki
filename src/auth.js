@@ -1,7 +1,25 @@
 import React, { useState , useEffect } from 'react'
 import firebase from './firebase'
+import axios from 'axios';
 
 export const AuthContext = React.createContext()
+
+console.log('SERÁ QUE ESTE COMANDO DO AUTH EXECUTA??')
+
+const getGithubData = async (email) => {
+  const initPos = email.indexOf('@')
+  const emailUser = email.substr(0, initPos)
+  console.log('Dentro da  getGithubData  com emailuser  = ', emailUser)
+  
+  const data =  await axios.get(`https://api.github.com/users/${emailUser}`)
+    .then(console.log('Axios OKKKKKKKKKK'))
+    .catch(error=> console.log('AXIOS EEEERRO'))
+  //Promise.all([data]).then(valores => console.log(valores))
+  //console.log(data)
+
+  return  data // emailUser
+}
+
 
 const useGetUser = () => {
   const[user, setUser] = useState(null)
@@ -15,52 +33,140 @@ const useGetUser = () => {
       }
     })
   }, []) 
-  console.log('user ', user)
+  console.log('user retornado da useGetUser', user)
   return user 
 }
 
 const useCreateUser = () => {
+  
   const [state, setState] = useState({
     error: '',
-    success:''
+    success:'',
+    imageUrl: ''    
   })
+
   const createUser = (email, passwd) => {
-  
   firebase
   .auth()
   .createUserWithEmailAndPassword(email, passwd)
+  .then(user => {
+    console.log('ok no login')
+    const gitUser = getGithubData(email)
+
+    Promise.all([gitUser]).then(
+       valores => {
+         console.log('os valores ', valores)
+         console.log(valores[0].data)
+         console.log(valores[0].data.avatar_url)
+         setState({...state, 
+           imageUrl: valores[0].data.avatar_url
+         })
+
+         console.log('state do CREATE dentro do Promise all', state) 
+
+
+        }
+      )
+    console.log('FORA DO PROMISE ALL')
+    console.log('deita ', gitUser.data)
+    console.log('CONFORME PREVISTO na CreateUser', gitUser)   
+    console.log('state do CREATE ', state) 
+   //console.LOG (imageUrl)
+
+  })
+
+  //fim copiado do signin
+
+  /*  Devolver 
   .then( user => {
     if (user){
       setState({...state, 
-      success: 'Ok'
+      success: 'Ok',
+      imageUrl:''
       })
+
+//
+
+//
+
     }
+
+    const gitUser = getGithubData(email)
+    console.log('CONFORME PREVISTO na CreateUser', gitUser)
+
+
+    Promise.all([gitUser]).then(
+      valores => {
+        console.log('os valores NACREATE', valores)
+        console.log(valores[0].data)
+        console.log(valores[0].data.avatar_url)
+        setState({...state, 
+          imageUrl: valores[0].data.avatar_url
+        })    
+        console.log('state do CREATE dentro do Promise all', state) 
+
+
+      }
+    )
+
+    
   })
+  Fim Devolver*/
+
   .catch(err =>{
       setState({...state, 
       error: err.message
       })    
     })
   }
-return [state, createUser]
+
+  return [state, createUser]
 }
 
 const useSignInUser = () => {
   const [state, setState] = useState({
     error: '',
-    success:''
-  })
+    success:'',
+    imageUrl: ''
+   })
   const signInUser = (email, passwd) => {
     console.log('havera tentativa')
   firebase
   .auth()
   .signInWithEmailAndPassword(email, passwd)
+  .then(user => {
+    console.log('ok no login')
+    const gitUser = getGithubData(email)
+
+    Promise.all([gitUser]).then(
+       valores => {
+         console.log('os valores ', valores)
+         console.log(valores[0].data)
+         console.log(valores[0].data.avatar_url)
+         setState({...state, 
+           imageUrl: valores[0].data.avatar_url
+         })    
+         console.log('state do SIGNIN dentro do Promise all', state) 
+
+
+        }
+      )
+    console.log('FORA DO PROMISE ALL')
+    console.log('deita ', gitUser.data)
+    console.log('CONFORME PREVISTO na SigninUser', gitUser)   
+    console.log('state do SIGNIN ', state) 
+   //console.LOG (imageUrl)
+  })
   .catch(err =>{
       setState({...state, 
       error: err.message
       })    
     })
+
   }
+ 
+
+
 return [state, signInUser]
 }
 
@@ -84,7 +190,7 @@ export const AuthProvider = ({children}) => {
     <AuthContext.Provider value={{ 
       user, 
       createUser:{
-        createUserState, createUser 
+        createUser, createUserState 
       },
       signInUser:{
         signInUser, signInUserState 
