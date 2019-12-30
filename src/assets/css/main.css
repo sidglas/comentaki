@@ -249,6 +249,14 @@ hr {
     .inner {
       max-width: calc(100% - 3rem); } }
 
+.inner .btn-warning{
+  margin: 5px 5px 5px 0px;
+  width: 12rem;
+  max-width: calc(100% - 6rem); }
+  @media screen and (max-width: 480px) {
+    .inner {
+      max-width: calc(100% - 3rem); } }      
+
 /* Button */
 input[type="submit"],
 input[type="reset"],
