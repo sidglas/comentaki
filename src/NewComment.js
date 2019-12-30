@@ -57,7 +57,7 @@ const NewComment = () => {
         <div className='align-center container mt-50'>
         <span className='col-sm-1 col-md-3' />
         <div className='col-sm-10 col-md-6' >
-          <button  className='btn btn-success' onClick={createComment}> Comentar!</button>
+          <button  className='btn btn-success' onClick={createComment}> Comentar</button>
         </div>
         <span className='col-sm-1 col-md-3' />
         </div>
