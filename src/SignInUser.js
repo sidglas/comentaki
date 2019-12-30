@@ -1,6 +1,6 @@
 import React , { useContext, useState } from 'react'
 import { AuthContext} from './auth'
-//import { stringify } from 'querystring'
+
 import 'bootstrap/dist/css/bootstrap.css'
 
 const SignInUser = () => {
@@ -18,7 +18,6 @@ console.log(evt.target.value)
     }
     return (
         <>
-
         <div className="container">
           <div className="row">
           {
@@ -43,22 +42,14 @@ console.log(evt.target.value)
                       <label htmlFor="inputPassword">Password</label>
                     </div>
       
-                    <button className="btn btn-primary  text-uppercase" 
-                      onClick={ () => {
-                      console.log('aaaaa', form)
+                    <button className="btn btn-primary btn-block text-uppercase" 
+                    onClick={ () => {
+                      console.log('sssss', form)
                       auth.signInUser.signInUser(form.email, form.passwd)
                       }}>
                     Sign in
-                    </button>
-
-                    <button className="btn btn-primary  text-uppercase" 
-                    onClick={ () => {
-                      console.log('aaaaa', form)
-                      auth.createUser.createUser(form.email, form.passwd)
-                      }}>
-                    Sign up
  
-                    </button>  
+                    </button>
 
                     <hr className="my-4" />
 

@@ -42,7 +42,7 @@ const CreateUser = () => {
       
                     <button className="btn btn-primary btn-block text-uppercase" 
                     onClick={ () => {
-                      console.log('aaaaa', form)
+                      console.log('ccccc', form)
                       auth.createUser.createUser(form.email, form.passwd)
                       }}>
                     Sign up

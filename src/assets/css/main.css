@@ -1780,7 +1780,7 @@ ul.icons {
 
 /* Wrapper */
 .wrapper {
-  padding: 8rem 0 6rem 0 ;
+  padding: 3rem 0 2rem 0 ;
   position: relative;
   z-index: 1; }
   @media screen and (max-width: 1480px) {
@@ -2392,7 +2392,7 @@ ul.icons {
 
 /* Header */
 body {
-  padding-top: 3.25rem; }
+  padding-top: 0.25rem; }
   body:before {
     content: ' ';
     background-image: url(../../images/bg.jpg);
@@ -2406,7 +2406,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.05; }
+    opacity: 0.06; }
 
 #header {
   -moz-align-items: center;

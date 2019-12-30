@@ -1,6 +1,6 @@
 import React , { useContext, useState } from 'react'
 import { AuthContext} from './auth'
-
+//import { stringify } from 'querystring'
 import 'bootstrap/dist/css/bootstrap.css'
 
 const SignInUser = () => {
@@ -27,7 +27,7 @@ console.log(evt.target.value)
             <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
               <div className="card card-signin my-5">
                 <div className="card-body">
-                  <h5 className="card-title text-center">Sign In</h5>
+                  <h5 className="card-title text-center">Sign In / Sign Up</h5>
 
                     <div className="form-label-group">
                       <input type="text"  className="form-control" placeholder="Seu e-mail" 
@@ -42,14 +42,22 @@ console.log(evt.target.value)
                       <label htmlFor="inputPassword">Password</label>
                     </div>
       
-                    <button className="btn btn-primary btn-block text-uppercase" 
-                    onClick={ () => {
-                      console.log('aaaaa', form)
+                    <button className="btn btn-primary  text-uppercase" 
+                      onClick={ () => {
+                      console.log('sssss', form)
                       auth.signInUser.signInUser(form.email, form.passwd)
                       }}>
                     Sign in
- 
                     </button>
+
+                    <button className="btn btn-primary  text-uppercase" 
+                    onClick={ () => {
+                      console.log('ccccc', form)
+                      auth.createUser.createUser(form.email, form.passwd)
+                      }}>
+                    Sign up
+ 
+                    </button>  
 
                     <hr className="my-4" />
 
