@@ -28,16 +28,17 @@ const Comments = () => {
           <div className="inner">
               <header className="special">
                   <h2>Aqui você não Discorda</h2>
-                  <p>Nasce aqui a semente do discord da devpleno. O fim da discórdia. Quem se comunica, não se trombica!</p>
+                  <p>Nasce aqui a semente do discord da devpleno. Quem não se comunica, se trumbica!</p>
               </header>      
           </div>
 
           <div className="inner">
           <div className="testimonials">
-      {ids.map(id => {
-        return <Comment key={id} comment={data[id]} />
-      }).reverse()
-      }
+          {
+            ids.map(id => {
+              return <Comment key={id} comment={data[id]} />
+            }).reverse()
+          }
 
       </div>
       </div>

@@ -251,7 +251,7 @@ hr {
 
 .inner .btn-warning{
   margin: 5px 5px 5px 0px;
-  width: 12rem;
+  width: 8rem;
   max-width: calc(100% - 6rem); }
   @media screen and (max-width: 480px) {
     .inner {

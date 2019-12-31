@@ -16,7 +16,7 @@ const FormDisplayName = ({displayName, user}) => {
   
     <>
       <input type='text' value={newDisplayName}  onChange={onChange}/>
-      <button className='btn-warning' onClick={save}> Save display name</button>
+      <button className='btn-warning' onClick={save}> Save name</button>
 
    </> 
   )

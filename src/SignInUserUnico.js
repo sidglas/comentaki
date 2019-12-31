@@ -14,10 +14,11 @@ const SignInUser = () => {
 console.log(evt.target.value)
     }
     if (auth.user !== null) {
-      return null
+      return null 
     }
     return (
         <>
+
         <div className="container">
           <div className="row">
           {
@@ -44,7 +45,7 @@ console.log(evt.target.value)
       
                     <button className="btn btn-primary  text-uppercase" 
                       onClick={ () => {
-                      console.log('sssss', form)
+                      console.log('sssss1', form)
                       auth.signInUser.signInUser(form.email, form.passwd)
                       }}>
                     Sign in
@@ -52,7 +53,7 @@ console.log(evt.target.value)
 
                     <button className="btn btn-primary  text-uppercase" 
                     onClick={ () => {
-                      console.log('ccccc', form)
+                      console.log('ccccc1', form)
                       auth.createUser.createUser(form.email, form.passwd)
                       }}>
                     Sign up

@@ -42,11 +42,11 @@ const NewComment = () => {
 
       <textarea   value={comment} onChange={evt => setComment(evt.target.value)}/>      
       <button className='btn-warning' onClick={createComment}> Comentar</button>
-  
+      
         </div>    
         </section>
  
       </div>
     )
-  }
+}
   export default NewComment

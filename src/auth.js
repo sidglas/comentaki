@@ -114,6 +114,9 @@ const useSignInUser = () => {
   .signInWithEmailAndPassword(email, passwd)
   .then(user => {
     console.log('ok no login')
+    setState({...state, 
+      success: 'ok'
+    })    
     //buscar no firebase
 
 
@@ -161,7 +164,7 @@ const useSignInUser = () => {
       error: err.message
       })    
     })
-
+    console.log('state do SIGNIN ANTES DE RETORNAR ', state) 
   }
  
 
