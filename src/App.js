@@ -17,10 +17,11 @@ function App() {
   return (
     <AuthProvider>
       <div>
+        <SigninUser />      
         <NewComment />
         <Comments />
 
-        <SigninUser />
+  
         <UserInfo />
       </div>
     </AuthProvider>
