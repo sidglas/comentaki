@@ -24,7 +24,7 @@ const Comment = ({comment}) => {
                     <img src={comment.user.githubUser} alt="jne" />
                     
                 </div>
-                <p className="credit">- <strong>{ comment.user.name }</strong> <span>CEO - ABC Inc.</span></p>
+                <p className="credit">- <strong>{ comment.user.name }</strong> <span>CEO - BBC Inc.</span></p>
             </div>
         </div>
 
