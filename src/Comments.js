@@ -28,7 +28,7 @@ const Comments = () => {
           <div className="inner">
               <header className="special">
                   <h2>Aqui você não Discorda</h2>
-                  <p>Nasce aqui a semente do discord da devpleno. Quem não se comunica, se trumbica!</p>
+                  <p>Nasce aqui a semente do Fala! . Quem não se comunica, se trumbica!</p>
               </header>      
           </div>
 
